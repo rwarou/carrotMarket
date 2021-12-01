@@ -125,13 +125,58 @@ class _HomeState extends State<Home> {
     return ListView.separated(
         itemBuilder: (BuildContext _context, int index) {
           return Container(
-            child: Text(index.toString()),
+            child: Row(
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                  child: Image.asset(
+                    datas[index]["image"],
+                    width: 100,
+                    height: 100,
+                  ),
+                ),
+                Expanded(
+                  child: Container(
+                    height: 100,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(datas[index]["title"]),
+                        Text(datas[index]["location"]),
+                        Text(datas[index]["price"]),
+                        Expanded(
+                          child: Container(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                SvgPicture.asset(
+                                  "assets/svg/heart_off.svg",
+                                  width: 13,
+                                  height: 13,
+                                ),
+                                SizedBox(
+                                  width: 5,
+                                ),
+                                Text(datas[index]["likes"]),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
           );
         },
         separatorBuilder: (BuildContext _context, int index) {
           return Container(
             height: 1,
-            color: Colors.black,
+            color: Colors.black.withOpacity(0.4),
           );
         },
         itemCount: datas.length);
