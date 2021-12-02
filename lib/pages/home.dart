@@ -9,12 +9,18 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   List<Map<String, String>> datas = [];
-  int _currentPageIndex;
+  String _currentLocation;
+  final Map<String, String> locationTypeToString = {
+    "ara": "아라동",
+    "ora": "오리동",
+    "donam": "도남동",
+  };
 
   @override
   void initState() {
     super.initState();
 
+    _currentLocation = "ara";
     datas = [
       {
         "image": "assets/images/ara-1.jpg",
@@ -87,7 +93,6 @@ class _HomeState extends State<Home> {
         "likes": "7"
       },
     ];
-    _currentPageIndex = 0;
   }
 
   Widget _appBarWidget() {
@@ -96,11 +101,44 @@ class _HomeState extends State<Home> {
         onTap: () {
           print("click");
         },
-        child: Row(
-          children: [
-            Text('아라동'),
-            Icon(Icons.arrow_drop_down),
-          ],
+        child: PopupMenuButton<String>(
+          offset: Offset(-10, -10),
+          shape: ShapeBorder.lerp(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            1,
+          ),
+          onSelected: (String where) {
+            setState(() {
+              _currentLocation = where;
+            });
+          },
+          itemBuilder: (BuildContext context) {
+            return [
+              PopupMenuItem(
+                value: "ara",
+                child: Text("아라동"),
+              ),
+              PopupMenuItem(
+                value: "ora",
+                child: Text("오라동"),
+              ),
+              PopupMenuItem(
+                value: "donam",
+                child: Text("도남동"),
+              ),
+            ];
+          },
+          child: Row(
+            children: [
+              Text(locationTypeToString[_currentLocation]),
+              Icon(Icons.arrow_drop_down),
+            ],
+          ),
         ),
       ),
       elevation: 1,
@@ -211,46 +249,11 @@ class _HomeState extends State<Home> {
         itemCount: datas.length);
   }
 
-  BottomNavigationBarItem _bottomNavigationBarItem(String icon, String label) {
-    return BottomNavigationBarItem(
-      icon: Padding(
-        padding: const EdgeInsets.only(bottom: 5),
-        child: SvgPicture.asset(
-          "assets/svg/$icon.svg",
-          width: 22,
-        ),
-      ),
-      label: label,
-    );
-  }
-
-  Widget _bottomNavigationBarWidget() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      onTap: (int index) {
-        setState(() {
-          _currentPageIndex = index;
-        });
-      },
-      currentIndex: _currentPageIndex,
-      selectedItemColor: Colors.black,
-      selectedFontSize: 12,
-      items: [
-        _bottomNavigationBarItem("home_off", "HOME"),
-        _bottomNavigationBarItem("notes_off", "AROUND"),
-        _bottomNavigationBarItem("location_off", "NEAR"),
-        _bottomNavigationBarItem("chat_off", "CHAT"),
-        _bottomNavigationBarItem("user_off", "MY PAGE"),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _appBarWidget(),
       body: _bodyWidget(),
-      bottomNavigationBar: _bottomNavigationBarWidget(),
     );
   }
 }
