@@ -162,12 +162,75 @@ class _DetailsState extends State<Details> {
     );
   }
 
+  Widget _line() {
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 15),
+      height: 1,
+      color: Colors.grey.withOpacity(0.3),
+    );
+  }
+
+  Widget _contentsDetail() {
+    return Container(
+      margin: EdgeInsets.symmetric(
+        horizontal: 15,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          Text(
+            widget.data["title"],
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
+            ),
+          ),
+          Text(
+            "디지털/가전 - 22시간 전",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 12,
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Text(
+            "선물받은 새상품이고\n상품 꺼내보기만 했습니다\n거래는 직거래만 합니다",
+            style: TextStyle(
+              fontSize: 15,
+              height: 1.5,
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Text(
+            "채팅 3 - 관심 17 - 조회 297",
+            style: TextStyle(
+              color: Colors.grey,
+              fontSize: 12,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   Widget _bodyWidget() {
-    return Column(
-      children: [
-        _makeSliderImage(),
-        _sellerInfo(),
-      ],
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          _makeSliderImage(),
+          _sellerInfo(),
+          _line(),
+          _contentsDetail(),
+          _line(),
+        ],
+      ),
     );
   }
 
