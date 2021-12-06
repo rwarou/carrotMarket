@@ -1,7 +1,7 @@
 import 'package:carrotmarket/repository/contents.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:intl/intl.dart';
+import 'package:carrotmarket/utils/utils.dart';
 
 import 'details.dart';
 
@@ -98,14 +98,6 @@ class _HomeState extends State<Home> {
     );
   }
 
-  final oCcy = new NumberFormat("#,###", "ko_KR");
-  String calcStringToWon(String price) {
-    if (!RegExp('[0-9]').hasMatch(price)) {
-      return price;
-    }
-    return "${oCcy.format(int.parse(price))}원";
-  }
-
   _loadContents() {
     return contents.loadContentsFromLocation(_currentLocation);
   }
@@ -165,7 +157,7 @@ class _HomeState extends State<Home> {
                             height: 5,
                           ),
                           Text(
-                            calcStringToWon(datas[index]["price"]),
+                            utils.calcStringToWon(datas[index]["price"]),
                             style: TextStyle(
                               fontWeight: FontWeight.w500,
                             ),
