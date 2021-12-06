@@ -65,59 +65,99 @@ class _DetailsState extends State<Details> {
     );
   }
 
-  Widget _bodyWidget() {
-    return Stack(
-      children: [
-        Hero(
-          tag: widget.data["cid"],
-          child: Container(
-            child: CarouselSlider(
-              options: CarouselOptions(
-                height: size.width,
-                initialPage: 0,
-                enableInfiniteScroll: false,
-                viewportFraction: 1,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    _current = index;
-                  });
-                },
+  Widget _makeSliderImage() {
+    return Container(
+      child: Stack(
+        children: [
+          Hero(
+            tag: widget.data["cid"],
+            child: Container(
+              child: CarouselSlider(
+                options: CarouselOptions(
+                  height: size.width,
+                  initialPage: 0,
+                  enableInfiniteScroll: false,
+                  viewportFraction: 1,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      _current = index;
+                    });
+                  },
+                ),
+                items: imgList.map(
+                  (map) {
+                    return Image.asset(
+                      map["url"],
+                      width: size.width,
+                      fit: BoxFit.fill,
+                    );
+                  },
+                ).toList(),
               ),
-              items: imgList.map(
-                (map) {
-                  return Image.asset(
-                    map["url"],
-                    width: size.width,
-                    fit: BoxFit.fill,
-                  );
-                },
-              ).toList(),
             ),
           ),
-        ),
-        Positioned(
-          bottom: 0,
-          left: 0,
-          right: 0,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: imgList
-                .map(
-                  (map) => Container(
-                    width: 10,
-                    height: 10,
-                    margin: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: _current == int.parse(map["id"])
-                          ? Colors.white
-                          : Colors.white.withOpacity(0.3),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: imgList
+                  .map(
+                    (map) => Container(
+                      width: 10,
+                      height: 10,
+                      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 4),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: _current == int.parse(map["id"])
+                            ? Colors.white
+                            : Colors.white.withOpacity(0.3),
+                      ),
                     ),
-                  ),
-                )
-                .toList(),
+                  )
+                  .toList(),
+            ),
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _sellerInfo() {
+    return Row(
+      children: [
+        CircleAvatar(
+          radius: 25,
+          backgroundImage: Image.asset("assets/images/user.png").image,
         ),
+        SizedBox(
+          width: 10,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "RWAROU",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
+              ),
+            ),
+            Text(
+              "제주시 도담동",
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _bodyWidget() {
+    return Column(
+      children: [
+        _makeSliderImage(),
+        _sellerInfo(),
       ],
     );
   }
