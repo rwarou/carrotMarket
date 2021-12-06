@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carrotmarket/componants/manorTemperatureWidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:carrotmarket/utils/utils.dart';
 
 class Details extends StatefulWidget {
   final Map<String, String> data;
@@ -60,9 +62,72 @@ class _DetailsState extends State<Details> {
 
   Widget _bottomBarWidget() {
     return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: 15,
+      ),
       width: size.width,
       height: 55,
-      color: Colors.red,
+      child: Row(
+        children: [
+          GestureDetector(
+            onTap: () {},
+            child: SvgPicture.asset(
+              "assets/svg/heart_off.svg",
+              width: 25,
+              height: 25,
+            ),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+              left: 15,
+              right: 10,
+            ),
+            width: 1,
+            height: 40,
+            color: Colors.grey.withOpacity(0.3),
+          ),
+          Column(
+            children: [
+              Text(
+                utils.calcStringToWon(widget.data["price"]),
+                style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+              ),
+              Text(
+                "가격제안불가",
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey,
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 7,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: Color(0xfff08f4f),
+                  ),
+                  child: Text(
+                    "deal for chat",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -286,6 +351,9 @@ class _DetailsState extends State<Details> {
                           color: Colors.grey,
                           height: 120,
                         ),
+                      ),
+                      SizedBox(
+                        height: 10,
                       ),
                       Text(
                         "상품제목",
