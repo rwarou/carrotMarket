@@ -214,23 +214,100 @@ class _DetailsState extends State<Details> {
               color: Colors.grey,
               fontSize: 12,
             ),
-          )
+          ),
+          SizedBox(
+            height: 15,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _otherCellContents() {
+    return Padding(
+      padding: const EdgeInsets.all(15),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            "판매자님의 판매 상품",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Text(
+            "모두보기",
+            style: TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ],
       ),
     );
   }
 
   Widget _bodyWidget() {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          _makeSliderImage(),
-          _sellerInfo(),
-          _line(),
-          _contentsDetail(),
-          _line(),
-        ],
-      ),
+    return CustomScrollView(
+      slivers: [
+        SliverList(
+          delegate: SliverChildListDelegate(
+            [
+              _makeSliderImage(),
+              _sellerInfo(),
+              _line(),
+              _contentsDetail(),
+              _line(),
+              _otherCellContents(),
+            ],
+          ),
+        ),
+        SliverPadding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 15,
+          ),
+          sliver: SliverGrid(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+            ),
+            delegate: SliverChildListDelegate(
+              List.generate(
+                20,
+                (index) => Container(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Container(
+                          color: Colors.grey,
+                          height: 120,
+                        ),
+                      ),
+                      Text(
+                        "상품제목",
+                        style: TextStyle(
+                          fontSize: 14,
+                        ),
+                      ),
+                      Text(
+                        "금액",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ).toList(),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
