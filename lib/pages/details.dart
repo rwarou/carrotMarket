@@ -21,10 +21,12 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
   ScrollController _controller = ScrollController();
   AnimationController _aniController;
   Animation _colorTween;
+  bool isMyFavoriteContent;
 
   @override
   initState() {
     super.initState();
+    isMyFavoriteContent = false;
     _aniController = AnimationController(vsync: this);
     _colorTween = ColorTween(begin: Colors.white, end: Colors.black)
         .animate(_aniController);
@@ -101,11 +103,18 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
       child: Row(
         children: [
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              setState(() {
+                isMyFavoriteContent = !isMyFavoriteContent;
+              });
+            },
             child: SvgPicture.asset(
-              "assets/svg/heart_off.svg",
+              isMyFavoriteContent
+                  ? "assets/svg/heart_on.svg"
+                  : "assets/svg/heart_off.svg",
               width: 25,
               height: 25,
+              color: Color(0xfff08f4f),
             ),
           ),
           Container(
