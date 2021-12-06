@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:carrotmarket/componants/manorTemperatureWidget.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
@@ -125,31 +126,39 @@ class _DetailsState extends State<Details> {
   }
 
   Widget _sellerInfo() {
-    return Row(
-      children: [
-        CircleAvatar(
-          radius: 25,
-          backgroundImage: Image.asset("assets/images/user.png").image,
-        ),
-        SizedBox(
-          width: 10,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "RWAROU",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+    return Padding(
+      padding: const EdgeInsets.all(15),
+      child: Row(
+        children: [
+          CircleAvatar(
+            radius: 25,
+            backgroundImage: Image.asset("assets/images/user.png").image,
+          ),
+          SizedBox(
+            width: 10,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "RWAROU",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
+              Text(
+                "제주시 도담동",
+              ),
+            ],
+          ),
+          Expanded(
+            child: ManorTemperature(
+              manorTemp: 37.5,
             ),
-            Text(
-              "제주시 도담동",
-            ),
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 
