@@ -13,10 +13,35 @@ class Details extends StatefulWidget {
   _DetailsState createState() => _DetailsState();
 }
 
-class _DetailsState extends State<Details> {
+class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
   Size size;
   List<Map<String, String>> imgList;
   int _current;
+  double scrPositionToAlpha = 0;
+  ScrollController _controller = ScrollController();
+  AnimationController _aniController;
+  Animation _colorTween;
+
+  @override
+  initState() {
+    super.initState();
+    _aniController = AnimationController(vsync: this);
+    _colorTween = ColorTween(begin: Colors.white, end: Colors.black)
+        .animate(_aniController);
+    _controller.addListener(() {
+      setState(() {
+        if (_controller.offset >= 255)
+          scrPositionToAlpha = 255;
+        else if (_controller.offset <= 0)
+          scrPositionToAlpha = 0;
+        else
+          scrPositionToAlpha = _controller.offset;
+
+        _aniController.value = scrPositionToAlpha / 255;
+      });
+    });
+  }
+
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
@@ -31,29 +56,35 @@ class _DetailsState extends State<Details> {
     ];
   }
 
+  Widget _makeIcon(IconData icon) {
+    return AnimatedBuilder(
+      animation: _colorTween,
+      builder: (context, child) => Icon(
+        icon,
+        color: _colorTween.value,
+      ),
+    );
+  }
+
   Widget _appBarWidget() {
     return AppBar(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.white.withAlpha(
+        scrPositionToAlpha.toInt(),
+      ),
       elevation: 0,
       leading: IconButton(
-        icon: Icon(
-          Icons.arrow_back,
-          color: Colors.white,
-        ),
+        icon: _makeIcon(Icons.arrow_back),
         onPressed: () {
           Navigator.pop(context);
         },
       ),
       actions: [
         IconButton(
-          icon: Icon(Icons.share, color: Colors.white),
+          icon: _makeIcon(Icons.share),
           onPressed: () {},
         ),
         IconButton(
-          icon: Icon(
-            Icons.more_vert,
-            color: Colors.white,
-          ),
+          icon: _makeIcon(Icons.more_vert),
           onPressed: () {},
         ),
       ],
@@ -315,6 +346,7 @@ class _DetailsState extends State<Details> {
 
   Widget _bodyWidget() {
     return CustomScrollView(
+      controller: _controller,
       slivers: [
         SliverList(
           delegate: SliverChildListDelegate(
