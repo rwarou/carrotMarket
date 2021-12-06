@@ -14,6 +14,7 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
+  final ScaffoldKey = GlobalKey<ScaffoldState>();
   Size size;
   List<Map<String, String>> imgList;
   int _current;
@@ -107,6 +108,14 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
               setState(() {
                 isMyFavoriteContent = !isMyFavoriteContent;
               });
+              ScaffoldKey.currentState.showSnackBar(
+                SnackBar(
+                  duration: Duration(milliseconds: 1000),
+                  content: Text(isMyFavoriteContent
+                      ? "관심 목록에 추가 되었습니다."
+                      : "관심 목록에서 제거되었습니다."),
+                ),
+              );
             },
             child: SvgPicture.asset(
               isMyFavoriteContent
@@ -423,6 +432,7 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: ScaffoldKey,
       extendBodyBehindAppBar: true,
       appBar: _appBarWidget(),
       body: _bodyWidget(),
