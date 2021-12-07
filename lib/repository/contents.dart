@@ -1,4 +1,6 @@
-class Contents {
+import 'package:carrotmarket/repository/localStorage.dart';
+
+class Contents extends LocalStorage {
   Map<String, dynamic> data = {
     "ara": [
       {
