@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:carrotmarket/repository/localStorage.dart';
 
 class Contents extends LocalStorage {
+  final String MY_FAVORITE_STORE_KEY = "MY_FAVORITE_STORE_KEY";
   Map<String, dynamic> data = {
     "ara": [
       {
@@ -173,5 +176,9 @@ class Contents extends LocalStorage {
     // API 통신 - location 값을 보내주면서
     await Future.delayed(Duration(microseconds: 1000));
     return data[location];
+  }
+
+  addMyFavoriteContent(Map<String, String> content) {
+    this.setStoredValue(MY_FAVORITE_STORE_KEY, jsonEncode(content));
   }
 }

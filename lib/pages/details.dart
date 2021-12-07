@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carrotmarket/componants/manorTemperatureWidget.dart';
+import 'package:carrotmarket/repository/contents.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:carrotmarket/utils/utils.dart';
@@ -15,6 +16,7 @@ class Details extends StatefulWidget {
 
 class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
   final ScaffoldKey = GlobalKey<ScaffoldState>();
+  Contents contents;
   Size size;
   List<Map<String, String>> imgList;
   int _current;
@@ -28,6 +30,7 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
   initState() {
     super.initState();
     isMyFavoriteContent = false;
+    contents = Contents();
     _aniController = AnimationController(vsync: this);
     _colorTween = ColorTween(begin: Colors.white, end: Colors.black)
         .animate(_aniController);
@@ -105,6 +108,7 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
         children: [
           GestureDetector(
             onTap: () {
+              contents.addMyFavoriteContent(widget.data);
               setState(() {
                 isMyFavoriteContent = !isMyFavoriteContent;
               });
