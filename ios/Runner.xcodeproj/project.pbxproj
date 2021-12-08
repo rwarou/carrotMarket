@@ -34,7 +34,11 @@
 		1498D2321E8E86230040F4C2 /* GeneratedPluginRegistrant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GeneratedPluginRegistrant.h; sourceTree = "<group>"; };
 		1498D2331E8E89220040F4C2 /* GeneratedPluginRegistrant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratedPluginRegistrant.m; sourceTree = "<group>"; };
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		2D31D1DF1D24CBF507FB3C37 /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		236D788139F440346253703E /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 =======
 		236D788139F440346253703E /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 >>>>>>> Stashed changes
@@ -50,9 +54,15 @@
 		97C147001CF9000F007C117D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		C2C79C00AF11F0AA2F30A866 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
 		E65EE90C2775C5809B711EE9 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.profile.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		EA434D782FACDB64F67EEBD5 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+=======
+		BE6F42F13F0EFA97C4F3BBD0 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		CA0E752FE609EDD14B03200D /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDC269BC270BCF5812BE02F9 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.debug.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 =======
 		BE6F42F13F0EFA97C4F3BBD0 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Runner.release.xcconfig"; path = "Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
 		CA0E752FE609EDD14B03200D /* Pods_Runner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Runner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,7 +76,11 @@
 			buildActionMask = 2147483647;
 			files = (
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				452C3448BDF6B5856013FFE1 /* Pods_Runner.framework in Frameworks */,
+=======
+				37BDAD1280192C6F269D5A6C /* Pods_Runner.framework in Frameworks */,
+>>>>>>> Stashed changes
 =======
 				37BDAD1280192C6F269D5A6C /* Pods_Runner.framework in Frameworks */,
 >>>>>>> Stashed changes
@@ -77,6 +91,7 @@
 
 /* Begin PBXGroup section */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		2CADD5ECAA35A6846323F2D3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,12 +101,17 @@
 			);
 			path = Pods;
 =======
+=======
+>>>>>>> Stashed changes
 		49B99C2C6DC6F37F9319907F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				CA0E752FE609EDD14B03200D /* Pods_Runner.framework */,
 			);
 			name = Frameworks;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 			sourceTree = "<group>";
 		};
@@ -113,8 +133,13 @@
 				97C146F01CF9000F007C117D /* Runner */,
 				97C146EF1CF9000F007C117D /* Products */,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				2CADD5ECAA35A6846323F2D3 /* Pods */,
 				F9F58657CB05C1B273259295 /* Frameworks */,
+=======
+				DA071599ECCEDEEC673C8FC7 /* Pods */,
+				49B99C2C6DC6F37F9319907F /* Frameworks */,
+>>>>>>> Stashed changes
 =======
 				DA071599ECCEDEEC673C8FC7 /* Pods */,
 				49B99C2C6DC6F37F9319907F /* Frameworks */,
@@ -146,6 +171,7 @@
 			sourceTree = "<group>";
 		};
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		F9F58657CB05C1B273259295 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +179,8 @@
 			);
 			name = Frameworks;
 =======
+=======
+>>>>>>> Stashed changes
 		DA071599ECCEDEEC673C8FC7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +190,9 @@
 			);
 			name = Pods;
 			path = Pods;
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 			sourceTree = "<group>";
 		};
@@ -173,7 +204,11 @@
 			buildConfigurationList = 97C147051CF9000F007C117D /* Build configuration list for PBXNativeTarget "Runner" */;
 			buildPhases = (
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				2EBADFF5690E331BAF8C02C6 /* [CP] Check Pods Manifest.lock */,
+=======
+				3006CC9CA27338A888305B92 /* [CP] Check Pods Manifest.lock */,
+>>>>>>> Stashed changes
 =======
 				3006CC9CA27338A888305B92 /* [CP] Check Pods Manifest.lock */,
 >>>>>>> Stashed changes
@@ -184,7 +219,11 @@
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 				144A8AF970A03650EEB93255 /* [CP] Embed Pods Frameworks */,
+=======
+				475B740D91DD0D2D4631CFBE /* [CP] Embed Pods Frameworks */,
+>>>>>>> Stashed changes
 =======
 				475B740D91DD0D2D4631CFBE /* [CP] Embed Pods Frameworks */,
 >>>>>>> Stashed changes
@@ -247,6 +286,7 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 		144A8AF970A03650EEB93255 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -265,6 +305,9 @@
 			showEnvVarsInLog = 0;
 		};
 		2EBADFF5690E331BAF8C02C6 /* [CP] Check Pods Manifest.lock */ = {
+=======
+		3006CC9CA27338A888305B92 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> Stashed changes
 =======
 		3006CC9CA27338A888305B92 /* [CP] Check Pods Manifest.lock */ = {
 >>>>>>> Stashed changes
