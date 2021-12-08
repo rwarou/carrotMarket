@@ -181,4 +181,14 @@ class Contents extends LocalStorage {
   addMyFavoriteContent(Map<String, String> content) {
     this.setStoredValue(MY_FAVORITE_STORE_KEY, jsonEncode(content));
   }
+
+  isMyFavoriteContents(String cid) async {
+    String jsonString = await this.getStoredValue(MY_FAVORITE_STORE_KEY);
+    if (jsonString != null) {
+      Map<String, dynamic> json = jsonDecode(jsonString);
+      print(json);
+    } else {
+      return null;
+    }
+  }
 }
