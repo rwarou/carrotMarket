@@ -24,13 +24,12 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
   ScrollController _controller = ScrollController();
   AnimationController _aniController;
   Animation _colorTween;
-  bool isMyFavoriteContent;
+  bool isMyFavoriteContent = false;
 
   @override
   initState() {
     super.initState();
     contents = Contents();
-    isMyFavoriteContent = false;
     _aniController = AnimationController(vsync: this);
     _colorTween = ColorTween(begin: Colors.white, end: Colors.black)
         .animate(_aniController);
@@ -51,7 +50,10 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
   }
 
   _loadMyFavoriteContentState() async {
-    contents.isMyFavoriteContents(widget.data["cid"]);
+    bool ck = await contents.isMyFavoriteContents(widget.data["cid"]);
+    setState(() {
+      isMyFavoriteContent = ck;
+    });
   }
 
   @override

@@ -186,7 +186,7 @@ class Contents extends LocalStorage {
     String jsonString = await this.getStoredValue(MY_FAVORITE_STORE_KEY);
     if (jsonString != null) {
       Map<String, dynamic> json = jsonDecode(jsonString);
-      print(json);
+      return cid == json["cid"];
     } else {
       return null;
     }
