@@ -24,12 +24,13 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
   ScrollController _controller = ScrollController();
   AnimationController _aniController;
   Animation _colorTween;
-  bool isMyFavoriteContent = false;
+  bool isMyFavoriteContent;
 
   @override
   initState() {
     super.initState();
     contents = Contents();
+    isMyFavoriteContent = false;
     _aniController = AnimationController(vsync: this);
     _colorTween = ColorTween(begin: Colors.white, end: Colors.black)
         .animate(_aniController);
