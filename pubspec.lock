@@ -183,7 +183,11 @@ packages:
       name: petitparser
       url: "https://pub.dartlang.org"
     source: hosted
+<<<<<<< HEAD
     version: "4.4.0"
+=======
+    version: "4.1.0"
+>>>>>>> feature/creating
   plugin_platform_interface:
     dependency: transitive
     description:
@@ -260,5 +264,9 @@ packages:
     source: hosted
     version: "5.3.1"
 sdks:
+<<<<<<< HEAD
   dart: ">=2.14.0 <3.0.0"
+=======
+  dart: ">=2.12.0 <3.0.0"
+>>>>>>> feature/creating
   flutter: ">=2.0.0"
