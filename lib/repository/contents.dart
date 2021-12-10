@@ -1,4 +1,9 @@
-class Contents {
+import 'dart:convert';
+
+import 'package:carrotmarket/repository/localStorage.dart';
+
+class Contents extends LocalStorage {
+  final String MY_FAVORITE_STORE_KEY = "MY_FAVORITE_STORE_KEY";
   Map<String, dynamic> data = {
     "ara": [
       {
@@ -171,5 +176,39 @@ class Contents {
     // API 통신 - location 값을 보내주면서
     await Future.delayed(Duration(microseconds: 1000));
     return data[location];
+  }
+
+  addMyFavoriteContent(Map<String, String> content) async {
+    String jsonString = await this.getStoredValue(MY_FAVORITE_STORE_KEY);
+    print("add jsonString $jsonString");
+    List<dynamic> favoriteContents =
+        jsonString == null ? [] : jsonDecode(jsonString);
+    print("add favoritecontents $favoriteContents");
+    print("add content $content");
+    favoriteContents.add(content);
+    print("add favoritecontents $favoriteContents");
+    this.setStoredValue(MY_FAVORITE_STORE_KEY, jsonEncode(favoriteContents));
+  }
+
+  isMyFavoriteContents(String cid) async {
+    String jsonString = await this.getStoredValue(MY_FAVORITE_STORE_KEY);
+    bool isMyFavoriteContent = false;
+    print("$jsonString !@#!@#!@#!@#");
+    if (jsonString != null) {
+      List<dynamic> json = jsonDecode(jsonString);
+      if (json == null || !(json is List)) {
+        return false;
+      } else {
+        for (dynamic data in json) {
+          if (data["cid"] == cid) {
+            isMyFavoriteContent = true;
+            break;
+          }
+        }
+      }
+      return isMyFavoriteContent;
+    } else {
+      return null;
+    }
   }
 }
